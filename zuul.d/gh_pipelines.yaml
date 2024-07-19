@@ -24,7 +24,7 @@
           action:
             - opened
             - changed
-      efxcabin:
+      github:
         # Run this pipeline on new/changed pull requests
         - event: pull_request
           action:
@@ -41,7 +41,7 @@
           action: rerequested
           check: .*/check:.*
     start:
-      efxcabin:
+      github:
         check: 'in_progress'
         comment: false
         # It is recommended to use the checks API for consistency with
@@ -63,7 +63,7 @@
     success:
       gerrit:
         Verified: 1
-      efxcabin:
+      github:
         check: 'success'
         comment: false
         #status: 'success'
@@ -73,7 +73,7 @@
     failure:
       gerrit:
         Verified: -1
-      efxcabin:
+      github:
         check: 'failure'
         comment: false
         #status: 'failure'
@@ -81,7 +81,7 @@
         comment: true
         approval: false
     dequeue:
-      efxcabin:
+      github:
         check: cancelled
         comment: false
 
